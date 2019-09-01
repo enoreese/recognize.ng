@@ -6,7 +6,19 @@ from .Person import Person
 from .base import db
 from .Embedding import Embedding
 from .Face import Face
+from .Fingerprint import Fingerprint
+from .Song import Song
+from .Artist import Artist
+from .Files import Files
 
-__all__ = ["Email", "Person", "db", "Embedding", "Face"]
+__all__ = ["Email",
+           "Person",
+           "db",
+           "Embedding",
+           "Face",
+           "Fingerprint",
+           "Song",
+           "Artist",
+           "Files"]
 
 # You must import all of the new Models you create to this page

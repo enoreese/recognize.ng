@@ -1,8 +1,8 @@
-from api.core import Mixin
-from .base import db
+# from api.core import Mixin
+from .base import db, BaseModel, MetaBaseModel
 
 
-class Person(Mixin, db.Model):
+class Person(db.Model, BaseModel, metaclass=MetaBaseModel):
     """Person Table."""
 
     __tablename__ = "person"
@@ -12,13 +12,12 @@ class Person(Mixin, db.Model):
     phone = db.Column(db.BigInteger, nullable=True)
     fullname = db.Column(db.String, nullable=False)
     emails = db.relationship("Email", backref="emails")
-    faces = db.relationship("Face", backref="faces")
 
-    def __init__(self, fullname, pasword, phone):
+    def __init__(self, fullname, password, phone):
         self.fullname = fullname
-        self.password = pasword
+        self.password = password
         self.phone = phone
 
 
-    def __repr__(self):
-        return "<Person {self.fullname}>"
+    # def __repr__(self):
+    #     return "<Person {self.fullname}>"

@@ -1,6 +1,6 @@
 """ Defines the Embedding repository """
 
-from api.models import Embedding
+from api.models import Embedding, db
 
 
 class EmbeddingRepository():
@@ -9,21 +9,22 @@ class EmbeddingRepository():
     @staticmethod
     def getEmbeddings(face_id):
         """ Query all Embeddings by face_id """
-        return Embedding.query.filter_by(face_id=face_id).all()
+        return Embedding.query.filter_by(face=face_id).all()
 
     @staticmethod
     def getEmbedding(face_id, embedding_id):
         """ Query a Embedding by user_id and face_id """
-        return Embedding.query.filter_by(embedding_id=embedding_id, face_id=face_id).first()
+        return Embedding.query.filter_by(id=embedding_id, face=face_id).first()
 
     @staticmethod
-    def createEmbedding(face_id, embedding):
+    def createEmbedding(face_id, embedding, file):
         """ Create a new face embedding """
-        face = Embedding(
+        embedding = Embedding(
             embedding=embedding,
         )
+        embedding.face = face_id
+        embedding.file = file
 
-        db.session.add()
-        db.session.commit()
+        embedding.save()
 
-        return face
+        return embedding

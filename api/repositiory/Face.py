@@ -1,7 +1,7 @@
 """ Defines the Face repository """
 
-from api.models import Face, db
-
+from api.models import Face, db, Embedding
+from .Embedding import EmbeddingRepository
 
 class FaceRepository():
     """ The repository for the user model """
@@ -9,21 +9,25 @@ class FaceRepository():
     @staticmethod
     def getFaces(user_id):
         """ Query all Faces by user_id """
-        return Face.query.filter_by(user_id=user_id).all()
+        return Face.query.filter_by(person=user_id).all()
 
     @staticmethod
     def getFace(user_id, face_id):
         """ Query a Face by user_id and face_id """
-        return Face.query.filter_by(user_id=user_id, face_id=face_id).first()
+        return Face.query.filter_by(person=user_id, face_id=face_id).first()
 
-    def updateFaceEmbedding(self, embedding, face_id, user_id):
+    def updateFaceEmbedding(self, embeddings, face_id, user_id, files):
         """ Add embedding to existing face """
         face = self.getFace(user_id, face_id)
 
-        face.embeddings.append(embedding)
+        for embedding, file in zip(embeddings, files):
+            embedd = EmbeddingRepository.createEmbedding(face_id=face.face_id,
+                                                         embedding=embedding,
+                                                         file=file)
+            face.embeddings.append(embedd)
+            embedd.save()
 
-        db.session.add()
-        db.session.commit()
+        face.save()
 
         return face
 
@@ -31,24 +35,31 @@ class FaceRepository():
         """ Add embedding to existing face """
         face = self.getFace(user_id, face_id)
 
-        face.face_name = face_name
-        face.face_descr = face_descr
+        if face_name:
+            face.face_name = face_name
+        if face_descr:
+            face.face_descr = face_descr
 
-        db.session.add()
-        db.session.commit()
+        face.save()
 
         return face
 
     @staticmethod
-    def createFace(face_name, face_descr, embedding, user_id):
+    def createFace(face_name, face_descr, embeddings, user_id, files):
         """ Create a new face """
+
         face = Face(
             face_name=face_name,
-            face_descr=face_descr,
-            embedding=embedding,
+            face_descr=face_descr
         )
 
-        db.session.add()
-        db.session.commit()
+        for embedding, file in zip(embeddings, files):
+            embedd = EmbeddingRepository.createEmbedding(face_id=face.face_id,
+                                                         embedding=embedding,
+                                                         file=file)
+            face.embeddings.append(embedd)
+        face.person = user_id
+
+        face.save()
 
         return face

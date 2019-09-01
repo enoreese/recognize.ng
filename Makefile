@@ -9,7 +9,11 @@ setup: start_dev_db
 	venv/bin/python manage.py recreate_db
 
 run_server:
+	## venv/bin/python scripts/start_serving.py
 	venv/bin/python manage.py runserver
+
+test:
+	venv/bin/python -m pytest tests/
 
 start_dev_db:
 	echo "creating docker postgres DB"
@@ -17,7 +21,7 @@ start_dev_db:
 
 recreate_db:
 	./scripts/docker_destroy.sh
-	start_dev_db
+	make start_dev_db
 	sleep 2
 	venv/bin/python manage.py recreate_db
 

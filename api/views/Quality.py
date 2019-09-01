@@ -3,14 +3,12 @@ from api.models import db, Person, Email
 from api.repositiory import PersonRepository, EmbeddingRepository, FaceRepository
 from api.core import create_response, serialize_list, logger
 from sqlalchemy import inspect
-from api.utils import img_to_encoding, create_model
+from api.utils import decode_image, create_model
 
 import requests, json
 import numpy as np
 from io import BytesIO
 from keras.preprocessing import image
-
-MODEL = create_model()
 
 main = Blueprint("quality", __name__)  # initialize blueprint
 
@@ -24,50 +22,6 @@ def index():
     logger.info("Hello World!")
     return "<h1>Hello World!</h1>"
 
-
-# function that is called when you visit /persons
-@main.route("/quality/<user_id>/<face_id>", methods=["GET"])
-def get_face():
-    user_id = request.view_args['user_id']
-    face_id = request.view_args['face_id']
-    face = FaceRepository.getFace(user_id=user_id, face_id=face_id)
-    embedding = EmbeddingRepository.getEmbedding(face_id=face_id, embedding_id=face.embedding.id)
-
-    response = {
-        'status': 'success',
-        'data': {
-            'face_name': face.face_name,
-            'face_descr': face.face_descr,
-            'embedding': embedding.embedding
-        }
-    }
-
-    return create_response(data={"response": serialize_list(response)})
-
-
-# function that is called when you visit /persons
-@main.route("/face/<user_id>/", methods=["GET"])
-def get_faces():
-    user_id = request.view_args['user_id']
-    faces = FaceRepository.getFaces(user_id=user_id)
-    embeddings = []
-
-    for face in faces:
-        embedding = EmbeddingRepository.getEmbedding(face_id=face.face_id, embedding_id=face.embedding.id)
-        embeddings.append({
-            'face_name': face.face_name,
-            'face_descr': face.face_descr,
-            'embedding': embedding.embedding
-        })
-
-    response = {
-        'status': 'success',
-        'data': embeddings
-    }
-
-    return create_response(data={"response": serialize_list(response)})
-
-
 # POST request for /id-quality
 @main.route("/id-quality", methods=["POST"])
 def id_quality():
@@ -79,7 +33,9 @@ def id_quality():
         logger.info(msg)
         return create_response(status=422, message=msg)
 
-    img = BytesIO(data['image'].read())
+    decoded_image = decode_image(data['image'])
+
+    img = BytesIO(decoded_image)
 
     img = image.img_to_array(image.load_img(img,
                                             target_size=(150, 150))) / 255.
@@ -117,7 +73,7 @@ def id_quality():
 
 # POST request for /id-quality
 @main.route("/id-quality-bulk", methods=["POST"])
-def id_quality():
+def id_quality_bulk():
     data = request.get_json()
 
     logger.info("Data recieved: %s", data)

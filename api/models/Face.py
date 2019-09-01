@@ -1,13 +1,13 @@
 """
 Define the Face model
 """
-from api.core import Mixin
-from .base import db
+# from api.core import Mixin
+from .base import db, BaseModel, MetaBaseModel
 from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.types import PickleType
 
 
-class Face(Mixin, db.Model):
+class Face(db.Model, BaseModel, metaclass=MetaBaseModel):
     """ The Face model """
 
     __tablename__ = "face"
@@ -20,8 +20,7 @@ class Face(Mixin, db.Model):
     face_id = db.Column(db.Integer, unique=True, primary_key=True, autoincrement=True)
     embeddings = db.relationship("Embedding", backref="embeddings")
 
-    def __init__(self, face_name, face_descr, embedding=None):
+    def __init__(self, face_name, face_descr):
         """ Create a new face """
         self.face_name = face_name
         self.face_descr = face_descr
-        self.embedding = embedding

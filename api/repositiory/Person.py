@@ -1,12 +1,12 @@
-from api.models import Person
+from api.models import Person,db, Email
 
 class PersonRepository:
     """ The repository for the user model """
 
     @staticmethod
-    def get(email):
+    def get(phone):
         """ Query a user by last and first name """
-        return Person.query.filter_by(email=email).first()
+        return Person.query.filter_by(phone=phone).first()
 
     @staticmethod
     def getById(id):
@@ -18,11 +18,26 @@ class PersonRepository:
         user = self.get(email)
         user.phone = phone
 
-        return user.save()
+        db.session.add(user)
+        db.session.commit()
+
+        return user
 
     @staticmethod
     def create(fullname, password, phone, email):
         """ Create a new user """
-        user = Person(email=email, phone=phone, fullname=fullname, password=password)
+        user = Person(phone=phone, fullname=fullname, password=password)
 
-        return user.save()
+        print('user')
+
+        email = Email(email=email)
+        user.emails.append(email)
+
+        print('email to save')
+
+        email.save()
+        user.save()
+
+        print('saved')
+
+        return user

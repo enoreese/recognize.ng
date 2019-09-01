@@ -4,7 +4,6 @@ import os
 import tempfile
 import time
 from unittest import mock
-
 import testing.postgresql
 import pytest
 import sqlalchemy
@@ -30,6 +29,7 @@ def client(postgres):
     config_dict = {
         "SQLALCHEMY_DATABASE_URI": postgres.url(),
         "DEBUG": True,
+        "TESTING": True,
         "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     }
     app = create_app(config_dict)
@@ -37,6 +37,8 @@ def client(postgres):
 
     time.sleep(2)
     from api.models import db
+
+    # app.run(host="0.0.0.0", port=5050)
 
     db.create_all()
     # for test client api reference

@@ -3,6 +3,7 @@ from api.models import db, Person, Email
 from api.repositiory import PersonRepository
 from api.core import create_response, serialize_list, logger
 from sqlalchemy import inspect
+from flask import jsonify
 
 main = Blueprint("person", __name__)  # initialize blueprint
 
@@ -18,11 +19,21 @@ def index():
 
 
 # function that is called when you visit /persons
-@main.route("/persons/<email>", methods=["GET"])
+@main.route("/persons", methods=["GET"])
 def get_person():
-    email = request.view_args['email']
-    persons = PersonRepository.get(email=email)
-    return create_response(data={"person": serialize_list(persons)})
+    phone = request.args.get('phone')
+
+    logger.info("Data recieved: %s", phone)
+    persons = PersonRepository.get(phone=phone)
+    persons = persons.json
+    person = {
+        "id": persons['id'],
+        "fullname": persons['fullname'],
+        "phone": persons['phone'],
+        "emails": serialize_list(persons['emails'])
+    }
+    print(person)
+    return create_response(status=200, data={"person": person})
 
 
 # POST request for /persons
@@ -30,8 +41,8 @@ def get_person():
 def create_person():
     data = request.get_json()
 
-    logger.info("Data recieved: %s", data)
-    if "fullname" not in data:
+    logger.info("Data fullname: %s", data['fullname'])
+    if 'fullname' not in data:
         msg = "No name provided for person."
         logger.info(msg)
         return create_response(status=422, message=msg)
@@ -48,18 +59,36 @@ def create_person():
         logger.info(msg)
         return create_response(status=422, message=msg)
 
+    print('here')
+
     # create SQLAlchemy Objects
-    new_person = PersonRepository.create(fullname=data["name"], email=data['email'], password=data['password'],
-                                         phone=data['phone'])
-    email = Email(email=data["email"])
-    new_person.emails.append(email)
+    # try:
+    new_person = PersonRepository.create(fullname=data["fullname"], password=data['password'],
+                                             phone=data['phone'], email=data['email'])
+    # except Exception as e:
+    #     msg = e
+    #     logger.info(msg)
+    #     return create_response(status=422, message=msg)
+
+    persons = new_person.json
+    person = {
+        "id": persons['id'],
+        "fullname": persons['fullname'],
+        "phone": persons['phone'],
+        "emails": serialize_list(persons['emails'])
+    }
+
+    logger.info("inserted user: %s", person)
+    # email = Email(email=data["email"])
+    # new_person.emails.append(email)
 
     # commit it to database
-    db.session.add_all([new_person, email])
-    db.session.commit()
+    # db.session.add_all([new_person, email])
+    # db.session.commit()
     return create_response(
-        status='success',
-        message= "Successfully created person {new_person.name} with id: {new_person._id}"
+        status=200,
+        message="Successfully created person {new_person.name} with id: {new_person._id}",
+        data=person
     )
 
 
@@ -87,15 +116,13 @@ def update_person():
         return create_response(status=422, message=msg)
 
     # create SQLAlchemy Objects
-    new_person = PersonRepository.create(fullname=data["name"], email=data['email'], password=data['password'],
+    new_person = PersonRepository.update(fullname=data["name"], email=data['email'], password=data['password'],
                                          phone=data['phone'])
     email = Email(email=data["email"])
     new_person.emails.append(email)
 
-    # commit it to database
-    db.session.add_all([new_person, email])
-    db.session.commit()
     return create_response(
-        status='success',
-        message= "Successfully created person {new_person.name} with id: {new_person._id}"
+        status=200,
+        message="Successfully created person {new_person.name} with id: {new_person._id}",
+        # data=new_person
     )

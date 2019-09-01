@@ -1,8 +1,10 @@
 import configparser
 import logging
-# from api.models import db
+from api.models import db
 from typing import Tuple, List
-
+from sqlalchemy import inspect
+from datetime import datetime
+from itertools import zip_longest
 from werkzeug.local import LocalProxy
 from flask import current_app, jsonify
 from flask.wrappers import Response
@@ -17,6 +19,8 @@ class Mixin:
     
     Adds `to_dict()` to easily serialize objects to dictionaries.
     """
+    print_filter = ()
+    to_json_filter = ()
 
     def to_dict(self):
         d_out = dict((key, val) for key, val in self.__dict__.items())
@@ -25,8 +29,7 @@ class Mixin:
         return d_out
 
 
-
-def create_response(data= None, status=200, message = ""):
+def create_response(status, data= None, message = ""):
     """Wraps response in a consistent format throughout the API.
     
     Format inspired by https://medium.com/@shazow/how-i-design-json-api-responses-71900f00f2db
@@ -43,6 +46,7 @@ def create_response(data= None, status=200, message = ""):
     :param message <str> optional message
     :returns tuple of Flask Response and int
     """
+
     if type(data) is not dict and data is not None:
         raise TypeError("Data should be a dictionary 😞")
 
@@ -61,6 +65,17 @@ def serialize_list(items):
     return [x.to_dict() for x in items]
 
 
+def serialize_embeddings(items):
+    """Serializes a list of SQLAlchemy Objects, exposing their attributes.
+
+    :param items - List of Objects that inherit from Mixin
+    :returns List of dictionaries
+    """
+    if not items or items is None:
+        return []
+    return [x.tolist() for x in items]
+
+
 # add specific Exception handlers before this, if needed
 # More info at http://flask.pocoo.org/docs/1.0/patterns/apierrors/
 def all_exception_handler(error):
@@ -69,6 +84,11 @@ def all_exception_handler(error):
     :returns Tuple of a Flask Response and int
     """
     return create_response(message=str(error), status=500)
+
+def grouper(iterable, n, fillvalue=None):
+    args = [iter(iterable)] * n
+    return (filter(None, values) for values
+            in zip_longest(fillvalue=fillvalue, *args))
 
 
 def get_pg_url(file = "creds.ini"):
