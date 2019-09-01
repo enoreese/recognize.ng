@@ -2,56 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d337df57-a93d-4edb-b581-22843daf27f6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/api/models/Artist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/models/Files.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/models/Fingerprint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/models/Song.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/repositiory/Artist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/repositiory/Files.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/repositiory/Fingerprint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/repositiory/Song.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/utils/helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/utils/music/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/utils/music/decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/utils/music/fingerprint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/utils/music/recognize.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/utils/music/wavio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views/Artist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views/Document.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views/Music.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/start_serving.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RecognizeNg.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RecognizeNg.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/Email.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/Email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/Embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/Embedding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/Face.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/Face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/Person.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/Person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/repositiory/Embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/repositiory/Embedding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/repositiory/Face.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/repositiory/Face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/repositiory/Person.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/repositiory/Person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/repositiory/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/repositiory/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/fr_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/fr_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/haar_classifiers/face_detect_model.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/haar_classifiers/face_detect_model.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/inception_blocks_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/inception_blocks_v2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/utils/ml_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/ml_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views/Face.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/Face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views/Person.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/Person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views/Quality.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/Quality.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_person.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,7 +18,7 @@
           <file leaf-file-name="Face.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/views/Face.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1199">
+                <state relative-caret-position="407">
                   <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
@@ -122,8 +73,8 @@
           <file leaf-file-name="ml_func.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/utils/ml_func.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="220">
-                  <caret line="702" column="72" selection-start-line="702" selection-start-column="72" selection-end-line="702" selection-end-column="72" />
+                <state relative-caret-position="383">
+                  <caret line="713" selection-start-line="713" selection-end-line="713" />
                   <folding>
                     <element signature="e#37#64#0" expanded="true" />
                   </folding>
@@ -304,20 +255,28 @@
             <path>
               <item name="RecognizeNg" type="b2602c69:ProjectViewProjectNode" />
               <item name="RecognizeNg" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="repositiory" type="462c0819:PsiDirectoryNode" />
+              <item name="serving" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RecognizeNg" type="b2602c69:ProjectViewProjectNode" />
               <item name="RecognizeNg" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="serving" type="462c0819:PsiDirectoryNode" />
+              <item name="image_quality_classifier" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RecognizeNg" type="b2602c69:ProjectViewProjectNode" />
               <item name="RecognizeNg" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="serving" type="462c0819:PsiDirectoryNode" />
+              <item name="image_quality_classifier" type="462c0819:PsiDirectoryNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RecognizeNg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RecognizeNg" type="462c0819:PsiDirectoryNode" />
+              <item name="serving" type="462c0819:PsiDirectoryNode" />
+              <item name="image_quality_classifier" type="462c0819:PsiDirectoryNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+              <item name="variables" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -435,15 +394,15 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" weight="0.2494043" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5019857" side_tool="true" weight="0.2924138" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32965517" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32965517" />
-      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32965517" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -779,7 +738,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views/Face.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1199">
+        <state relative-caret-position="407">
           <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -799,8 +758,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/ml_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="702" column="72" selection-start-line="702" selection-start-column="72" selection-end-line="702" selection-end-column="72" />
+        <state relative-caret-position="383">
+          <caret line="713" selection-start-line="713" selection-end-line="713" />
           <folding>
             <element signature="e#37#64#0" expanded="true" />
           </folding>

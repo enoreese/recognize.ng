@@ -691,18 +691,18 @@ def detect_face(url, skip=False):
 
 async def train_knn(user_id, n_neighbors=None, knn_algo='ball_tree', verbose=False):
     print("Training KNN...")
-    X = np.empty((0,128), float)
-    Y = np.empty((0,1), float)
+    X = []# np.empty((0,128), float)
+    Y = []# np.empty((0,1), float)
 
     faces = FaceRepository.getFaces(user_id=user_id)
 
     for face in faces:
         for embed in face.embeddings:
             embedding = EmbeddingRepository.getEmbedding(face_id=face.face_id, embedding_id=embed.id)
-            np.append(Y, np.array(int(user_id)), axis=0)
-            np.append(X, np.array(embedding.embedding).astype('float32'), axis=0)
-            # Y.append(int(user_id))
-            # X.append(np.array(embedding.embedding).astype('float32'))
+            # np.append(Y, np.array(int(user_id)), axis=0)
+            # np.append(X, np.array(embedding.embedding).astype('float32'), axis=0)
+            Y.append(int(user_id))
+            X.append(np.array(embedding.embedding).astype('float32'))
 
     # Determine how many neighbors to use for weighting in the KNN classifier
     if n_neighbors is None:
@@ -710,6 +710,9 @@ async def train_knn(user_id, n_neighbors=None, knn_algo='ball_tree', verbose=Fal
         if verbose:
             print("Chose n_neighbors automatically:", n_neighbors)
 
+    X = np.array(X)
+
+    Y = np.array(Y)
     # Create and train the KNN classifier
     knn_clf = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, algorithm=knn_algo, weights='distance')
     knn_clf.fit(X, Y)
