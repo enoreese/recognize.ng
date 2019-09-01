@@ -73,8 +73,8 @@
           <file leaf-file-name="ml_func.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/utils/ml_func.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="383">
-                  <caret line="713" selection-start-line="713" selection-end-line="713" />
+                <state relative-caret-position="329">
+                  <caret line="706" column="34" selection-start-line="706" selection-start-column="34" selection-end-line="706" selection-end-column="34" />
                   <folding>
                     <element signature="e#37#64#0" expanded="true" />
                   </folding>
@@ -394,7 +394,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5019857" side_tool="true" weight="0.2924138" />
@@ -402,7 +402,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32965517" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32965517" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -758,8 +758,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/ml_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="713" selection-start-line="713" selection-end-line="713" />
+        <state relative-caret-position="329">
+          <caret line="706" column="34" selection-start-line="706" selection-start-column="34" selection-end-line="706" selection-end-column="34" />
           <folding>
             <element signature="e#37#64#0" expanded="true" />
           </folding>
