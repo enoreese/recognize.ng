@@ -277,14 +277,6 @@
               <item name="image_quality_classifier" type="462c0819:PsiDirectoryNode" />
               <item name="1" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="RecognizeNg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecognizeNg" type="462c0819:PsiDirectoryNode" />
-              <item name="serving" type="462c0819:PsiDirectoryNode" />
-              <item name="image_quality_classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="1" type="462c0819:PsiDirectoryNode" />
-              <item name="variables" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -401,7 +393,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5019857" side_tool="true" weight="0.2924138" />
@@ -409,7 +401,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32965517" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32965517" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
