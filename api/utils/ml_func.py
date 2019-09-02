@@ -2,6 +2,7 @@
 from api.core import logger
 import tensorflow as tf
 import numpy as np
+import pandas as pd
 import os, math
 import urllib.request
 import cv2, base64
@@ -691,8 +692,8 @@ def detect_face(url, skip=False):
 
 async def train_knn(user_id, n_neighbors=None, knn_algo='ball_tree', verbose=False):
     print("Training KNN...")
-    X = np.array([])# np.empty((0,128), float)
-    Y = np.array([])# np.empty((0,1), float)
+    X = pd.DataFrame()
+    Y = pd.DataFrame()
 
     faces = FaceRepository.getFaces(user_id=user_id)
 
@@ -701,8 +702,12 @@ async def train_knn(user_id, n_neighbors=None, knn_algo='ball_tree', verbose=Fal
             embedding = EmbeddingRepository.getEmbedding(face_id=face.face_id, embedding_id=embed.id)
             # np.append(Y, np.array(int(user_id)), axis=0)
             # np.append(X, np.array(embedding.embedding).astype('float32'), axis=0)
-            X = np.vstack((X, np.array(embedding.embedding).astype('float32')))
-            Y = np.vstack((Y, np.array(int(user_id)).astype('int32')))
+            en = np.array(embedding.embedding).astype('float32')
+            print(en.shape)
+            X = pd.concat([X, pd.DataFrame(np.array(embedding.embedding).astype('float32'))])
+            print(X.shape)
+            Y = pd.concat([Y, pd.DataFrame(np.array([int(user_id)]))])
+            print(Y.shape)
             # Y.append(int(user_id))
             # X.append(np.array(embedding.embedding).astype('float32'))
 
@@ -712,9 +717,11 @@ async def train_knn(user_id, n_neighbors=None, knn_algo='ball_tree', verbose=Fal
         if verbose:
             print("Chose n_neighbors automatically:", n_neighbors)
 
-    X = np.array(X)
+    X = X.values
+    Y = Y.values
 
-    Y = np.array(Y)
+    print("X shape: ", X.shape)
+    print("Y shape: ", Y.shape)
     # Create and train the KNN classifier
     knn_clf = neighbors.KNeighborsClassifier(n_neighbors=n_neighbors, algorithm=knn_algo, weights='distance')
     knn_clf.fit(X, Y)

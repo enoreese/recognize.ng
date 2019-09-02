@@ -3,9 +3,9 @@ import asyncio
 from flask import Blueprint, request
 from api.repositiory import PersonRepository, EmbeddingRepository, FaceRepository, FileRepository
 from api.core import create_response, serialize_list, logger, serialize_embeddings
-from api.utils import img_to_encoding, train_knn, handle_upload, create_model, who_is_it, verify, detect_face, who_is_it_bulk
+from api.utils import img_to_encoding, train_knn, predict_face, handle_upload, create_model, who_is_it, verify, detect_face, who_is_it_bulk
+from api import MODEL
 
-MODEL = create_model()
 STORAGE = 'cloudinary'
 
 loop = asyncio.get_event_loop()
@@ -430,3 +430,43 @@ def post_detect_face():
     # db.session.commit()
 
 
+@main.route("/train-knn", methods=["GET"])
+def train_knn_post():
+    user_id = 1
+
+    print("Training KNN...")
+    loop.run_until_complete(train_knn(user_id=user_id))
+    print("Training complete")
+
+    return create_response(200, message="trainig done")
+
+
+@main.route("/predict-knn", methods=["POST"])
+def predict_knn_post():
+    user_id = 1
+    data = {}
+    image = request.files['image']
+    data['user_id'] = 1
+
+    print("Training KNN...")
+    loop.run_until_complete(train_knn(user_id=user_id))
+    print("Training complete")
+
+    prefix = str(user_id) + '-predict-knn'
+    uploaded_image = handle_upload(image, data=data, bucket='faces', prefix=prefix, storage=STORAGE)
+    # save file to db
+    file = FileRepository.createFile(file_url=uploaded_image, storage=STORAGE)
+    # generate embeddings
+    status, embed = img_to_encoding(uploaded_image, MODEL, resize=True)
+    if not status:
+        logger.info(embed)
+        return create_response(status=422, message=embed)
+
+    distance, pred, message = predict_face(embed, user_id)
+    print(distance)
+    print(pred)
+
+    return create_response(200, data={
+        "distance": distance,
+        "pred": pred
+    }, message=message)

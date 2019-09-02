@@ -8,10 +8,12 @@ from sqlalchemy_utils import create_database, database_exists
 
 from api.config import config
 from api.core import all_exception_handler
+from api.utils import create_model
 
 from dotenv import load_dotenv
 load_dotenv()
 
+MODEL = create_model()
 
 class RequestFormatter(logging.Formatter):
     def format(self, record):
