@@ -82,7 +82,11 @@
           </file>
           <file leaf-file-name=".gitattributes" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/.gitattributes">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+                </state>
+              </provider>
             </entry>
           </file>
           <file leaf-file-name="face-detect-test.py" pinned="false" current-in-tab="false">
@@ -178,7 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/api/views/Document.py" />
         <option value="$PROJECT_DIR$/api/views/main.py" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/requirements.txt" />
@@ -229,6 +232,7 @@
         <option value="$PROJECT_DIR$/face-detect-test.py" />
         <option value="$PROJECT_DIR$/api/views/Face.py" />
         <option value="$PROJECT_DIR$/api/utils/ml_func.py" />
+        <option value="$PROJECT_DIR$/.gitattributes" />
       </list>
     </option>
   </component>
@@ -763,7 +767,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
