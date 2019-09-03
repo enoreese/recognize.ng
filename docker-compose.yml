@@ -11,7 +11,7 @@ services:
     volumes:
       - flask-app-db:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - 5432:5432
   app:
     container_name: app
     restart: always

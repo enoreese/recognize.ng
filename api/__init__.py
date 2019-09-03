@@ -8,7 +8,12 @@ from sqlalchemy_utils import create_database, database_exists
 
 from api.config import config
 from api.core import all_exception_handler
+from api.utils import create_model
 
+from dotenv import load_dotenv
+load_dotenv()
+
+MODEL = create_model()
 
 class RequestFormatter(logging.Formatter):
     def format(self, record):
@@ -78,12 +83,23 @@ def create_app(test_config=None):
     Migrate(app, db)
 
     # import and register blueprints
-    from api.views import main
+    # from api.views import main
+    from api.views import Person
+    from api.views import Face
+    # from api.views import Quality
+    # from api.views import Document
+    from api.views import Music
+    from api.views import Artist
 
     # why blueprints http://flask.pocoo.org/docs/1.0/blueprints/
-    app.register_blueprint(main.main)
+    # app.register_blueprint(main.main)
+    app.register_blueprint(Person.main)
+    app.register_blueprint(Face.main)
+    # app.register_blueprint(Music.main)
+    # app.register_blueprint(Artist.main)
+    # app.register_blueprint(Quality.main)
 
     # register error Handler
-    app.register_error_handler(Exception, all_exception_handler)
+    # app.register_error_handler(Exception, all_exception_handler)
 
     return app

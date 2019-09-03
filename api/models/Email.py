@@ -1,8 +1,8 @@
-from api.core import Mixin
-from .base import db
+# from api.core import Mixin
+from .base import db, BaseModel, MetaBaseModel
 
 # Note that we use sqlite for our tests, so you can't use Postgres Arrays
-class Email(Mixin, db.Model):
+class Email(db.Model, BaseModel, metaclass=MetaBaseModel):
     """Email Table."""
 
     __tablename__ = "email"
@@ -16,5 +16,5 @@ class Email(Mixin, db.Model):
     def __init__(self, email):
         self.email = email
 
-    def __repr__(self):
-        return "<Email {self.email}>"
+    # def __repr__(self):
+    #     return "<Email {self.email}>"

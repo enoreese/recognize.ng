@@ -1,42 +1,46 @@
 #### PART OF THIS CODE IS USING CODE FROM VICTOR SY WANG: https://github.com/iwantooxxoox/Keras-OpenFace/blob/master/utils.py ####
-from io import BytesIO
-from keras.preprocessing import image
 import tensorflow as tf
 import numpy as np
 import os
-import cv2
+import urllib.request
+import cv2, base64
 from numpy import genfromtxt
 from keras.layers import Conv2D, ZeroPadding2D, Activation, Input, concatenate
-from keras.models import Model
 from keras.layers.normalization import BatchNormalization
-from keras.layers.pooling import MaxPooling2D, AveragePooling2D
+from .ml_func import detect_face
 import h5py
-from .weights import *
-# import matplotlib.pyplot as plt
+
 
 _FLOATX = 'float32'
+
 
 def variable(value, dtype=_FLOATX, name=None):
     v = tf.Variable(np.asarray(value, dtype=dtype), name=name)
     _get_session().run(v.initializer)
     return v
 
+
 def shape(x):
     return x.get_shape()
+
 
 def square(x):
     return tf.square(x)
 
+
 def zeros(shape, dtype=_FLOATX, name=None):
     return variable(np.zeros(shape), dtype, name)
+
 
 def concatenate(tensors, axis=-1):
     if axis < 0:
         axis = axis % len(tensors[0].get_shape())
     return tf.concat(axis, tensors)
 
+
 def LRN2D(x):
     return tf.nn.lrn(x, alpha=1e-4, beta=0.75)
+
 
 def conv2d_bn(x,
               layer=None,
@@ -142,7 +146,7 @@ def load_weights_from_FaceNet(FRmodel):
 
 def load_weights():
     # Set weights path
-    dirPath = '/mnt/src/util/weights/'
+    dirPath = '/Users/sasu/Desktop/Dev/RecognizeNg/api/utils/weights/'
     fileNames = filter(lambda f: not f.startswith('.'), os.listdir(dirPath))
     paths = {}
     weights_dict = {}
@@ -189,20 +193,41 @@ def load_dataset():
     
     return train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes
 
-def img_to_encoding(image_file, model):
-    # Decoding and pre-processing base64 image
-    # img = image.img_to_array(image.load_img(BytesIO(image_file)))
 
-    # Decoding and pre-processing base64 image
-    img_stream = BytesIO(image_file.read())
-    img1 = cv2.imdecode(np.fromstring(img_stream.read(), np.uint8), 1)
+# METHOD #1: OpenCV, NumPy, and urllib
+def url_to_image(url):
+    # download the image, convert it to a NumPy array, and then read
+    # it into OpenCV format
+    resp = urllib.request.urlopen(url=url, timeout=20)
+    image = np.asarray(bytearray(resp.read()), dtype="uint8")
+    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    # from skimage import io
+    # image = io.imread(url)
 
-    # this line is added because of a bug in tf_serving < 1.11
-    # img = img.astype('float16')
+    # return the image
+    return image
 
-    # img1 = cv2.imread(image_path, 1)
+
+def img_to_encoding(url, model, resize=False, crop=True):
+    print(url)
+    print('inside')
+    img1 = url_to_image(url) # cv2.imread(image_file, 1)
+    print('img to url')
+    if resize:
+        img1 = cv2.resize(img1, (96, 96))
+    if crop:
+        print('crop')
+        detected, faces, message, eyes = detect_face(url=img1, skip=True)
+        print(faces)
+        if not detected:
+            return False, "No face has been detected"
+        if len(faces) > 1:
+            return False, 'Multiple faces found'
+        for (x, y, w, h) in faces:
+            img1 = img1[y:y + h, x:x + w]
     img = img1[...,::-1]
     img = np.around(np.transpose(img, (2,0,1))/255.0, decimals=12)
     x_train = np.array([img])
+    # with graph.as_default():
     embedding = model.predict_on_batch(x_train)
-    return embedding
+    return True, embedding

@@ -34,6 +34,7 @@ class DevelopmentConfig(Config):
     )  # set the URI to call get_pg_url() once you have `creds.ini` setup
     SQLALCHEMY_DATABASE_URI = url
     DEBUG = True
+    UPLOAD_FOLDER = 'uploads/'
 
 
 class ProductionConfig(Config):

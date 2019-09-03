@@ -17,35 +17,35 @@ def index():
 
 
 # function that is called when you visit /persons
-@main.route("/persons", methods=["GET"])
-def get_persons():
-    persons = Person.query.all()
-    return create_response(data={"persons": serialize_list(persons)})
-
-
-# POST request for /persons
-@main.route("/persons", methods=["POST"])
-def create_person():
-    data = request.get_json()
-
-    logger.info("Data recieved: %s", data)
-    if "name" not in data:
-        msg = "No name provided for person."
-        logger.info(msg)
-        return create_response(status=422, message=msg)
-    if "email" not in data:
-        msg = "No email provided for person."
-        logger.info(msg)
-        return create_response(status=422, message=msg)
-
-    # create SQLAlchemy Objects
-    new_person = Person(name=data["name"])
-    email = Email(email=data["email"])
-    new_person.emails.append(email)
-
-    # commit it to database
-    db.session.add_all([new_person, email])
-    db.session.commit()
-    return create_response(
-        message= "Successfully created person {new_person.name} with id: {new_person._id}"
-    )
+# @main.route("/persons", methods=["GET"])
+# def get_persons():
+#     persons = Person.query.all()
+#     return create_response(data={"persons": serialize_list(persons)})
+#
+#
+# # POST request for /persons
+# @main.route("/persons", methods=["POST"])
+# def create_person():
+#     data = request.get_json()
+#
+#     logger.info("Data recieved: %s", data)
+#     if "name" not in data:
+#         msg = "No name provided for person."
+#         logger.info(msg)
+#         return create_response(status=422, message=msg)
+#     if "email" not in data:
+#         msg = "No email provided for person."
+#         logger.info(msg)
+#         return create_response(status=422, message=msg)
+#
+#     # create SQLAlchemy Objects
+#     new_person = Person(name=data["name"])
+#     email = Email(email=data["email"])
+#     new_person.emails.append(email)
+#
+#     # commit it to database
+#     db.session.add_all([new_person, email])
+#     db.session.commit()
+#     return create_response(
+#         message= "Successfully created person {new_person.name} with id: {new_person._id}"
+#     )
