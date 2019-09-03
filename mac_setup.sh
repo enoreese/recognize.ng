@@ -4,15 +4,15 @@
 
 set -o errexit  # exit on any errors
 
-brew install python3
-brew upgrade python3
-brew install postgresql
-brew link postgresql
-brew services start postgresql
-pip install virtualenv
-virtualenv flask-venv
-source /flask-venv/bin/activate
-pip install -r requirements.txt -r requirements-dev.txt
+#brew install python3
+#brew upgrade python3
+#brew install postgresql
+#brew link postgresql
+#brew services start postgresql
+#pip install virtualenv
+#virtualenv flask-venv
+#source /flask-venv/bin/activate
+#pip install -r requirements.txt -r requirements-dev.txt
 
 # wait until postgres is started
 while ! pg_isready -h "localhost" -p "5432" > /dev/null 2> /dev/null; do
