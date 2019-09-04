@@ -225,6 +225,7 @@ def update_face():
         }
     )
 
+
 # POST request for /face/recognize
 @main.route("/face/recognize", methods=["POST"])
 def recognize_face():
@@ -265,7 +266,7 @@ def recognize_face():
 
     if message == "Face found":
         logger.info("Recognized identity id: %s with distance of: %s", identity, min_dist)
-        face = FaceRepository.getFace(data['user_id'], face_id=identity)
+        face = FaceRepository.getFace(data['user_id'], face_id=int(identity))
         face = face.json
 
         # save file to db

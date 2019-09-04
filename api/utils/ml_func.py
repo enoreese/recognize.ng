@@ -706,7 +706,7 @@ async def train_knn(user_id, n_neighbors=None, knn_algo='ball_tree', verbose=Fal
             print(en.shape)
             X = pd.concat([X, pd.DataFrame(np.array(embedding.embedding).astype('float32'))])
             print(X.shape)
-            Y = pd.concat([Y, pd.DataFrame(np.array([int(user_id)]))])
+            Y = pd.concat([Y, pd.DataFrame(np.array([int(face.face_id)]))])
             print(Y.shape)
             # Y.append(int(user_id))
             # X.append(np.array(embedding.embedding).astype('float32'))
@@ -746,14 +746,14 @@ def predict_face(encoding, user_id, knn_clf=None, distance_threshold=0.6):
     print("closerst Distance", closest_distances)
     is_match = closest_distances[0][0][0] <= distance_threshold
     pred = knn_clf.predict(encoding)
-    print("pred: ", pred)
+    print("pred: ", pred[0])
 
     if is_match:
         message = 'Face found'
     else:
         message = 'No face found'
 
-    return closest_distances[0][0][0], pred, message
+    return closest_distances[0][0][0], pred[0], message
 
 
 def who_is_it_bulk(image_path, model, user_id, distance_threshold=0.6):
