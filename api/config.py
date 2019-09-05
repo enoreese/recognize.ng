@@ -65,10 +65,11 @@ class DockerDevConfig(Config):
     credentials. 
     """
 
-    SQLALCHEMY_DATABASE_URI = (
-        "postgresql://testusr:password@postgres/testdb"
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL"
     )  # hard coded URL, assuming you are using the docker-compose setup
     DEBUG = True
+    UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
 
 
 # way to map the value of `FLASK_ENV` to a configuration

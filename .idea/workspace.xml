@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d337df57-a93d-4edb-b581-22843daf27f6" name="Default" comment="" />
+    <list default="true" id="d337df57-a93d-4edb-b581-22843daf27f6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mac_setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/mac_setup.sh" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,14 +21,44 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Face.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Face.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/views/Face.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="269">
-                  <caret line="268" column="75" selection-start-line="268" selection-start-column="75" selection-end-line="268" selection-end-column="75" />
+                <state relative-caret-position="285">
+                  <caret line="296" column="27" selection-start-line="296" selection-start-column="27" selection-end-line="296" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/api/config.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#446#455#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mac_setup.sh" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mac_setup.sh">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="525">
+                  <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
                 </state>
               </provider>
             </entry>
@@ -56,10 +94,10 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ml_func.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ml_func.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/utils/ml_func.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="268">
+                <state relative-caret-position="220">
                   <caret line="748" column="26" selection-start-line="748" selection-start-column="26" selection-end-line="748" selection-end-column="26" />
                   <folding>
                     <element signature="e#37#64#0" expanded="true" />
@@ -68,11 +106,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/__init__.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+                <state relative-caret-position="1241">
+                  <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -80,10 +118,31 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="helper.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/api/utils/helper.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="106">
+                  <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="59" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.env">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Face.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/api/repositiory/Face.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
+                <state relative-caret-position="195">
                   <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
                 </state>
               </provider>
@@ -147,8 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/api/models/Email.py" />
         <option value="$PROJECT_DIR$/tests/test_person.py" />
         <option value="$PROJECT_DIR$/api/models/base.py" />
         <option value="$PROJECT_DIR$/api/views/Person.py" />
@@ -177,7 +234,6 @@
         <option value="$PROJECT_DIR$/api/repositiory/Fingerprint.py" />
         <option value="$PROJECT_DIR$/api/utils/music/__init__.py" />
         <option value="$PROJECT_DIR$/api/views/Music.py" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/api/models/__init__.py" />
         <option value="$PROJECT_DIR$/api/models/Files.py" />
         <option value="$PROJECT_DIR$/api/repositiory/Files.py" />
@@ -189,15 +245,18 @@
         <option value="$PROJECT_DIR$/api/utils/inception_blocks_v2.py" />
         <option value="$PROJECT_DIR$/api/utils/__init__.py" />
         <option value="$PROJECT_DIR$/api/utils/haar_classifiers/face_detect_model.xml" />
-        <option value="$PROJECT_DIR$/api/config.py" />
         <option value="$PROJECT_DIR$/api/utils/helper.py" />
         <option value="$PROJECT_DIR$/face-detect-test.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.gitattributes" />
-        <option value="$PROJECT_DIR$/mac_setup.sh" />
-        <option value="$PROJECT_DIR$/api/__init__.py" />
         <option value="$PROJECT_DIR$/api/views/Face.py" />
         <option value="$PROJECT_DIR$/api/utils/ml_func.py" />
+        <option value="$PROJECT_DIR$/api/__init__.py" />
+        <option value="$PROJECT_DIR$/api/config.py" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/mac_setup.sh" />
       </list>
     </option>
   </component>
@@ -278,9 +337,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="create_model&#9;null&#9;null&#10;96&#9;null&#9;null&#10;core&#9;FILE&#9;file:///Users/sasu/Desktop/Dev/RecognizeNg/api/core.py&#10;qua&#9;FILE&#9;file:///Users/sasu/Desktop/Dev/RecognizeNg/api/views/Quality.py&#10;to_dict&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="helper&#9;FILE&#9;file:///Users/sasu/Desktop/Dev/RecognizeNg/api/utils/helper.py&#10;create_model&#9;null&#9;null&#10;96&#9;null&#9;null&#10;core&#9;FILE&#9;file:///Users/sasu/Desktop/Dev/RecognizeNg/api/core.py&#10;qua&#9;FILE&#9;file:///Users/sasu/Desktop/Dev/RecognizeNg/api/views/Quality.py&#10;to_dict&#9;null&#9;null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -398,41 +457,37 @@
       <option name="project" value="LOCAL" />
       <updated>1567549936985</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="edit docker configuration">
+      <created>1567686929636</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1567686929637</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" weight="0.2494043" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5019857" side_tool="true" weight="0.2924138" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32965517" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32965517" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32965517" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" weight="0.2924138" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32965517" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32965517" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5019857" side_tool="true" weight="0.2924138" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32965517" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.4980143" visible="true" weight="0.2924138" />
-      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32965517" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -468,7 +523,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="add new requirements.txt" />
     <MESSAGE value="add new requirements.txt&#10;fix predict face using knn" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new requirements.txt&#10;fix predict face using knn" />
+    <MESSAGE value="edit docker configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit docker configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -476,13 +532,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/utils/music/recognize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/music/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -592,9 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-50" />
@@ -611,9 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -657,16 +700,6 @@
     <entry file="file://$PROJECT_DIR$/api/views/Person.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes" />
     <entry file="file://$PROJECT_DIR$/api/models/Files.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -685,41 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="21" selection-start-line="9" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-          <folding>
-            <element signature="e#446#455#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mac_setup.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -730,19 +732,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/repositiory/Face.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="195">
           <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
         </state>
       </provider>
@@ -754,6 +746,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/ml_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="748" column="26" selection-start-line="748" selection-start-column="26" selection-end-line="748" selection-end-column="26" />
+          <folding>
+            <element signature="e#37#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/utils/helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/views/Face.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="296" column="27" selection-start-line="296" selection-start-column="27" selection-end-line="296" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/models/Face.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -761,22 +783,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/views/Face.py">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="268" column="75" selection-start-line="268" selection-start-column="75" selection-end-line="268" selection-end-column="75" />
+        <state relative-caret-position="30">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mac_setup.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/utils/ml_func.py">
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="748" column="26" selection-start-line="748" selection-start-column="26" selection-end-line="748" selection-end-column="26" />
+        <state relative-caret-position="345">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding>
-            <element signature="e#37#64#0" expanded="true" />
+            <element signature="e#446#455#0" expanded="true" />
           </folding>
         </state>
       </provider>
