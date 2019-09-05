@@ -70,6 +70,7 @@ class DockerDevConfig(Config):
     )  # hard coded URL, assuming you are using the docker-compose setup
     DEBUG = True
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
+    LOG_FILE = "api.log"
 
 
 # way to map the value of `FLASK_ENV` to a configuration

@@ -1,9 +1,10 @@
 {
-    "name": "Flask Boilerplate",
-    "description": "Simple but opinionated flask boilerplate with Postgres, Docker, and Heroku",
+    "name": "Recognize NG",
+    "description": "Recognize.ng Artificial Intelligence Brain",
     "keywords": [
-        "flask",
-        "postgresql"
+        "recognize",
+        "postgresql",
+        "computer vision"
     ],
     "repository": "https://github.com/tko22/flask-boilerplate",
     "success_url": "/",
