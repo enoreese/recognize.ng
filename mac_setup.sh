@@ -15,8 +15,8 @@ sudo apt install postgresql postgresql-contrib
 #brew services start postgresql
 pip install virtualenv
 virtualenv flask-venv
-source /flask-venv/bin/activate
-pip install -r requirements-2.txt -r requirements-dev.txt
+source flask-venv/bin/activate
+pip install -r requirements-2.txt
 
 # wait until postgres is started
 while ! pg_isready -h "localhost" -p "5432" > /dev/null 2> /dev/null; do
@@ -26,10 +26,9 @@ done
 
 >&2 echo "Postgres is up - executing command"
 
-createdb || true    # create init database - pass on error 
-psql -c "create user recognize_usr with password 'Q1w2e3r4t5y6$';" || true     # pass on error
-psql -c "ALTER USER recognize_usr WITH SUPERUSER;" || true
-psql -c "create database recognize owner recognize_usr encoding 'utf-8';"
-psql -c "GRANT ALL PRIVILEGES ON DATABASE recognize TO recognize_usr;"
+createdb || true    # create init database - pass on error     # pass on error
+psql -c "ALTER USER forge WITH SUPERUSER;" || true
+psql -c "create database recognize owner forge encoding 'utf-8';"
+psql -c "GRANT ALL PRIVILEGES ON DATABASE recognize TO forge;"
 
 python manage.py recreate_db

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "flask-boilerplate",
+  "name": "recognize",
   "public": true,
   "type": "docker"
 }

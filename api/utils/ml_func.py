@@ -22,6 +22,7 @@ import pickle
 _FLOATX = 'float32'
 graph = None
 
+FULL_PATH_PREFIX = "/home/forge/production/recognize.ng/"
 
 def inception_block_1a(X):
     """
@@ -436,7 +437,7 @@ def load_weights_from_FaceNet(FRmodel):
 
 def load_weights():
     # Set weights path
-    dirPath = '/Users/sasu/Desktop/Dev/RecognizeNg/api/utils/weights/'
+    dirPath = FULL_PATH_PREFIX + 'api/utils/weights/'
     fileNames = filter(lambda f: not f.startswith('.'), os.listdir(dirPath))
     paths = {}
     weights_dict = {}
@@ -626,7 +627,8 @@ def gray_image(image_file):
     return imgtest
 
 def detect_eyes(roi_gray):
-    eye_cascade = cv2.CascadeClassifier('/Users/sasu/Desktop/Dev/RecognizeNg/api/utils/haar_classifiers/eye_detect_model.xml')
+    path = FULL_PATH_PREFIX + "api/utils/haar_classifiers/eye_detect_model.xml"
+    eye_cascade = cv2.CascadeClassifier(path)
 
     eyes = eye_cascade.detectMultiScale(roi_gray)
 
@@ -639,7 +641,8 @@ def detect_face(url, skip=False):
         decoded_image = url_to_image(url=url)
     imgtest = gray_image(image_file=decoded_image)
     logger.info('cascade')
-    face_cascade = cv2.CascadeClassifier('/Users/sasu/Desktop/Dev/RecognizeNg/api/utils/haar_classifiers/face_detect_model.xml')
+    path = FULL_PATH_PREFIX + "api/utils/haar_classifiers/face_detect_model.xml"
+    face_cascade = cv2.CascadeClassifier(path)
     # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     print("detect face")
     faces = face_cascade.detectMultiScale(imgtest, 1.1, 3, minSize=(100, 100))
