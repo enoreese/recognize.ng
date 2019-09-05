@@ -15,6 +15,7 @@ load_dotenv()
 
 MODEL = create_model()
 
+
 class RequestFormatter(logging.Formatter):
     def format(self, record):
         record.url = request.url
@@ -100,6 +101,6 @@ def create_app(test_config=None):
     # app.register_blueprint(Quality.main)
 
     # register error Handler
-    # app.register_error_handler(Exception, all_exception_handler)
+    app.register_error_handler(Exception, all_exception_handler)
 
     return app

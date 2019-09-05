@@ -1,6 +1,6 @@
 # this dockerfile is used for product deployments
 FROM python:3.7-alpine
-LABEL maintainer "Timothy Ko <tk2@illinois.edu>"
+LABEL maintainer "Sasu Usen <osas.usen@gmail.com>"
 
 COPY requirements.txt requirements.txt
 RUN apk update && \
@@ -18,7 +18,7 @@ COPY . /app
 WORKDIR /app
 
 # for the flask config
-ENV FLASK_ENV=prod
+ENV FLASK_ENV=docker
 
 EXPOSE 5000
 ENTRYPOINT [ "gunicorn", "-b", "0.0.0.0:5000", "--log-level", "INFO", "manage:app" ]
