@@ -11,3 +11,5 @@ api.log
 test.db
 creds.ini
 serving/
+mac_setup.sh
+.env

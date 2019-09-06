@@ -4,9 +4,9 @@ class PersonRepository:
     """ The repository for the user model """
 
     @staticmethod
-    def get(phone):
+    def get(user_id):
         """ Query a user by last and first name """
-        return Person.query.filter_by(phone=phone).first()
+        return Person.query.filter_by(id=user_id).first()
 
     @staticmethod
     def getById(id):
