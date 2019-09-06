@@ -3,7 +3,7 @@ from api.models import db, Person, Email
 from api.repositiory import PersonRepository, EmbeddingRepository, FaceRepository
 from api.core import create_response, serialize_list, logger
 from sqlalchemy import inspect
-from api.utils import decode_image, create_model
+from api.utils import decode_image, create_model, handle_upload, url_to_image
 
 import requests, json
 import numpy as np
@@ -12,6 +12,8 @@ from keras.preprocessing import image
 
 main = Blueprint("quality", __name__)  # initialize blueprint
 
+STORAGE = 'cloudinary'
+
 
 # function that is called when you visit /
 @main.route("/quality")
@@ -19,25 +21,35 @@ def index():
     # you are now in the current application context with the main.route decorator
     # access the logger with the logger from api.core and uses the standard logging module
     # try using ipdb here :) you can inject yourself
-    logger.info("Hello World!")
-    return "<h1>Hello World!</h1>"
+    logger.info("Hello Quality!")
+    return "<h1>Hello Quality!</h1>"
 
 # POST request for /id-quality
 @main.route("/id-quality", methods=["POST"])
 def id_quality():
     data = request.get_json()
+    imag = request.files['image']
 
     logger.info("Data recieved: %s", data)
-    if "image" not in data:
+    if not imag:
         msg = "No image provided for quality prediction."
         logger.info(msg)
         return create_response(status=422, message=msg)
+    if "user_id" not in data:
+        msg = "No name provided for face."
+        logger.info(msg)
+        return create_response(status=422, message=msg)
 
-    decoded_image = decode_image(data['image'])
+    # save file to storage
+    prefix = str(data['user_id']) + '-id-quality'
+    uploaded_image = handle_upload(imag, data=data, bucket='quality', prefix=prefix, storage=STORAGE)
 
-    img = BytesIO(decoded_image)
+    img1 = url_to_image(uploaded_image)
+    # decoded_image = decode_image(data['image'])
+    #
+    # img = BytesIO(decoded_image)
 
-    img = image.img_to_array(image.load_img(img,
+    img = image.img_to_array(image.load_img(img1,
                                             target_size=(150, 150))) / 255.
 
     # this line is added because of a bug in tf_serving < 1.11
@@ -63,7 +75,7 @@ def id_quality():
     # indicate that the request was a success
 
     return create_response(
-        status='success',
+        status=200,
         message="Successfully predicted image quality for your image",
         data={
             'prediction': prediction
@@ -75,26 +87,36 @@ def id_quality():
 @main.route("/id-quality-bulk", methods=["POST"])
 def id_quality_bulk():
     data = request.get_json()
+    images = request.files.getlist("images")
 
     logger.info("Data recieved: %s", data)
-    if "image" not in data:
+    if not images:
         msg = "No image provided for quality prediction."
         logger.info(msg)
         return create_response(status=422, message=msg)
+    if "user_id" not in data:
+        msg = "No name provided for face."
+        logger.info(msg)
+        return create_response(status=422, message=msg)
 
-    if len('images' == 0):
+    if len(images) < 0:
         msg = "Image array is empty."
         logger.info(msg)
         return create_response(status=422, message=msg)
 
     count = 1
-    images_arr = []
+    images_arr = {}
 
-    for image_file in data['images']:
+    for image_file in images:
 
-        img = BytesIO(image_file.read())
+        # img = BytesIO(image_file.read())
+        # save file to storage
+        prefix = str(data['user_id']) + '-id-quality'
+        uploaded_image = handle_upload(image_file, data=data, bucket='quality', prefix=prefix, storage=STORAGE)
 
-        img = image.img_to_array(image.load_img(img,
+        img1 = url_to_image(uploaded_image)
+
+        img = image.img_to_array(image.load_img(img1,
                                                 target_size=(150, 150))) / 255.
 
         # this line is added because of a bug in tf_serving < 1.11
@@ -117,16 +139,14 @@ def id_quality_bulk():
         else:
             prediction = 'Good'
 
-        images_arr.append({
-            count: prediction
-        })
+        images_arr[count] = prediction
 
         count += 1
 
     # indicate that the request was a success
 
     return create_response(
-        status='success',
+        status=200,
         message="Successfully predicted image quality for your image",
         data={
             'predictions': images_arr
