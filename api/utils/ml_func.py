@@ -737,7 +737,7 @@ async def train_knn(user_id, n_neighbors=None, knn_algo='ball_tree', verbose=Fal
     return knn_clf
 
 
-def predict_face(encoding, user_id, knn_clf=None, distance_threshold=0.6):
+def predict_face(encoding, user_id, knn_clf=None, distance_threshold=0.75):
     # Load a trained KNN model (if one was passed in)
     model_save_path = 'api/utils/knn_classifiers/user_{}_trained_knn.clf'.format(user_id)
     if knn_clf is None:

@@ -17,7 +17,7 @@ test:
 
 start_dev_db:
 	echo "creating docker postgres DB"
-	docker run -e POSTGRES_USER=testusr -e POSTGRES_PASSWORD=password -e POSTGRES_DB=testdb -p 5432:5432 -v flask-app-db:/var/lib/postgresql/data -d postgres:10
+	docker run -e POSTGRES_USER=forge -e POSTGRES_PASSWORD=Q1w2e3r4t5y6$ -e POSTGRES_DB=testdb -p 5432:5432 -v recognize-app-db:/var/lib/postgresql/data -d postgres:10
 
 recreate_db:
 	./scripts/docker_destroy.sh

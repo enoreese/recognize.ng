@@ -21,10 +21,10 @@ def index():
 # function that is called when you visit /persons
 @main.route("/persons", methods=["GET"])
 def get_person():
-    phone = request.args.get('phone')
+    phone = request.args.get('id')
 
     logger.info("Data recieved: %s", phone)
-    persons = PersonRepository.get(phone=phone)
+    persons = PersonRepository.get(user_id=phone)
     persons = persons.json
     person = {
         "id": persons['id'],
