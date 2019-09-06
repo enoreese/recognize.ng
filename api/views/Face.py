@@ -280,6 +280,9 @@ def recognize_face():
             user_id=data['user_id'],
             files=[file.id])
 
+        # train new face
+        loop.run_until_complete(train_knn(user_id=data['user_id']))
+
         return create_response(
             status=200,
             message=message,
@@ -364,6 +367,9 @@ def verify_face():
             embeddings=[encoding],
             user_id=data['user_id'],
             files=[file.id])
+
+        # train new face
+        loop.run_until_complete(train_knn(user_id=data['user_id']))
 
         return create_response(
             status=200,
