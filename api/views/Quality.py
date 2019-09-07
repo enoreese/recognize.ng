@@ -1,13 +1,9 @@
 from flask import Blueprint, request
-from api.models import db, Person, Email
-from api.repositiory import PersonRepository, EmbeddingRepository, FaceRepository
-from api.core import create_response, serialize_list, logger
-from sqlalchemy import inspect
-from api.utils import decode_image, create_model, handle_upload, url_to_image
+from api.core import create_response, logger
+from api.utils import handle_upload, url_to_image
 
 import requests, json
 import numpy as np
-from io import BytesIO
 from keras.preprocessing import image
 
 main = Blueprint("quality", __name__)  # initialize blueprint

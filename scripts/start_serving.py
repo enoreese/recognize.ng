@@ -12,7 +12,7 @@ tf_ic_server = ""
 
 try:
     tf_ic_server = subprocess.Popen(["tensorflow_model_server "
-                                     "--model_base_path=/home/forge/production/recognize.ng/api/serving/image_quality_classifier "
+                                     "--model_base_path=/home/forge/production/recognize.ng/serving/image_quality_classifier "
                                      "--rest_api_port=9000 --model_name=image_quality_classifier"],
                                     stdout=subprocess.DEVNULL,
                                     shell=True,

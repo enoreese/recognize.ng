@@ -87,7 +87,7 @@ def create_app(test_config=None):
     # from api.views import main
     from api.views import Person
     from api.views import Face
-    # from api.views import Quality
+    from api.views import Quality
     # from api.views import Document
     from api.views import Music
     from api.views import Artist
@@ -96,9 +96,9 @@ def create_app(test_config=None):
     # app.register_blueprint(main.main)
     app.register_blueprint(Person.main)
     app.register_blueprint(Face.main)
-    # app.register_blueprint(Music.main)
-    # app.register_blueprint(Artist.main)
-    # app.register_blueprint(Quality.main)
+    app.register_blueprint(Music.main)
+    app.register_blueprint(Artist.main)
+    app.register_blueprint(Quality.main)
 
     # register error Handler
     app.register_error_handler(Exception, all_exception_handler)
