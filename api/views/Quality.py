@@ -1,10 +1,13 @@
 from flask import Blueprint, request
 from api.core import create_response, logger
 from api.utils import handle_upload, url_to_image
-
+import cv2 as cv
 import requests, json
 import numpy as np
+import urllib
 from keras.preprocessing import image
+from PIL import Image
+from io import BytesIO
 
 main = Blueprint("quality", __name__)  # initialize blueprint
 
@@ -20,10 +23,18 @@ def index():
     logger.info("Hello Quality!")
     return "<h1>Hello Quality!</h1>"
 
+
+def load_image(link):
+    with urllib.request.urlopen(link) as url:
+        img = image.load_img(BytesIO(url.read()), target_size=(150, 150))
+
+    return image.img_to_array(img)
+
+
 # POST request for /id-quality
 @main.route("/id-quality", methods=["POST"])
 def id_quality():
-    data = request.get_json()
+    data = dict(request.form)
     imag = request.files['image']
 
     logger.info("Data recieved: %s", data)
@@ -40,13 +51,16 @@ def id_quality():
     prefix = str(data['user_id']) + '-id-quality'
     uploaded_image = handle_upload(imag, data=data, bucket='quality', prefix=prefix, storage=STORAGE)
 
-    img1 = url_to_image(uploaded_image)
-    # decoded_image = decode_image(data['image'])
-    #
-    # img = BytesIO(decoded_image)
-
-    img = image.img_to_array(image.load_img(img1,
-                                            target_size=(150, 150))) / 255.
+    # img1 = url_to_image(uploaded_image)
+    # resp = urllib.request.urlopen(url=uploaded_image, timeout=20)
+    # img = BytesIO(resp.read())
+    # img = np.asarray(bytearray(resp.read()), dtype="uint8")
+    # response = requests.get(uploaded_image)
+    # img = Image.open(BytesIO(response.content))
+    # img = cv.resize(img, (150, 150))
+    # img = image.img_to_array(img[...,::-1]) / 255.
+    img = load_image(uploaded_image) / 255.
+    # img = image.img_to_array(image.load_img(img, target_size=(150, 150))) / 255.
 
     # this line is added because of a bug in tf_serving < 1.11
     img = img.astype('float16')
